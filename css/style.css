@@ -249,8 +249,8 @@ section{
 }
 
 .container .posts-container .box .about img{
-    height: 50rem;
-    width: 50rem;
+    height: 45rem;
+    width: 45rem;
     border-radius: 50%;
     object-fit:cover;
     margin:1rem 0;
