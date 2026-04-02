@@ -12,88 +12,91 @@
         rel="stylesheet" />
     <style>
         :root {
-            /* ── Nord Snow Storm backgrounds ── */
-            --bg: #E5E9F0;
-            --bg2: #D8DEE9;
-            --surface: rgba(236, 239, 244, 0.58);
-            --surface2: rgba(229, 233, 240, 0.42);
-            --text: #2E3440;
-            --text2: #3B4252;
-            --muted: #4C566A;
-            --border: rgba(255, 255, 255, 0.55);
-            --border2: rgba(46, 52, 64, 0.10);
-            --shadow: 0 32px 80px rgba(46, 52, 64, 0.16), 0 8px 24px rgba(46, 52, 64, 0.08);
-            /* Frost blue for h1 accent span */
-            --accent: #5E81AC;
-            --accent2: #81A1C1;
-            --accent-glow: rgba(94, 129, 172, 0.18);
-            --gold: #EBCB8B;
-            --gold2: #D08770;
-            --input-bg: rgba(236, 239, 244, 0.65);
-            --input-border: rgba(255, 255, 255, 0.62);
-            --unit-bg: rgba(255, 255, 255, 0.22);
-            --num-color: #2E3440;
-            --chip-bg: rgba(255, 255, 255, 0.35);
-            --chip-border: rgba(255, 255, 255, 0.58);
-            --dot: #BF616A;
-            --popup-bg: rgba(236, 239, 244, 0.95);
-            --popup-hover: rgba(191, 97, 106, 0.08);
-            --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            /* Base */
+            --bg: #eff1f5;
+            --bg2: #e6e9ef;
+            --surface: rgba(220, 224, 232, 0.55);
+            --surface2: rgba(204, 208, 218, 0.45);
 
-            /* ── Nord Aurora red #BF616A ── */
-            --red: #BF616A;
-            --red2: #CF7882;
-            --red-glow: rgba(191, 97, 106, 0.28);
-            --red-bg: rgba(191, 97, 106, 0.10);
-            --red-border: rgba(191, 97, 106, 0.30);
+            --text: #4c4f69;
+            --text2: #5c5f77;
+            --muted: #6c6f85;
 
-            /* Glass vars */
-            --glass-blur: blur(44px) saturate(200%);
-            --glass-blur-card: blur(28px) saturate(180%);
-            --glass-blur-unit: blur(20px) saturate(160%);
-            --glass-blur-input: blur(12px);
-            --glass-blur-menu: blur(32px) saturate(200%);
-            --glass-specular: inset 0 1.5px 0 rgba(255, 255, 255, 0.80), inset 0 -1px 0 rgba(255, 255, 255, 0.18);
-            --glass-specular-unit: inset 0 1.5px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+            --border: rgba(0, 0, 0, 0.06);
+            --border2: rgba(0, 0, 0, 0.08);
+
+            --shadow: 0 32px 80px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.05);
+
+            /* 🎯 Accent system (YOUR REQUIREMENT) */
+            --accent: #8839ef;
+            /* Mauve */
+            --accent2: #dd7878;
+            /* Flamingo */
+            --accent-glow: rgba(136, 57, 239, 0.25);
+
+            /* Replace red system */
+            --red: #8839ef;
+            --red2: #dd7878;
+            --red-glow: rgba(136, 57, 239, 0.35);
+            --red-bg: rgba(136, 57, 239, 0.10);
+            --red-border: rgba(136, 57, 239, 0.30);
+
+            --input-bg: rgba(255, 255, 255, 0.6);
+            --input-border: rgba(0, 0, 0, 0.08);
+
+            --unit-bg: rgba(255, 255, 255, 0.25);
+            --num-color: #4c4f69;
+
+            --chip-bg: rgba(255, 255, 255, 0.45);
+            --chip-border: rgba(0, 0, 0, 0.08);
+
+            --dot: #dd7878;
+
+            --popup-bg: rgba(255, 255, 255, 0.9);
+            --popup-hover: rgba(136, 57, 239, 0.08);
         }
 
         [data-theme="dark"] {
-            /* ── Nord Polar Night backgrounds ── */
-            --bg: #2E3440;
-            --bg2: #3B4252;
-            --surface: rgba(59, 66, 82, 0.72);
-            --surface2: rgba(67, 76, 94, 0.58);
-            --text: #ECEFF4;
-            --text2: #E5E9F0;
-            --muted: #81A1C1;
-            --border: rgba(255, 255, 255, 0.10);
+            --bg: #303446;
+            --bg2: #414559;
+            --surface: rgba(65, 69, 89, 0.75);
+            --surface2: rgba(81, 87, 109, 0.55);
+
+            --text: #c6d0f5;
+            --text2: #b5bfe2;
+            --muted: #a5adce;
+
+            --border: rgba(255, 255, 255, 0.08);
             --border2: rgba(255, 255, 255, 0.06);
-            --shadow: 0 32px 80px rgba(0, 0, 0, 0.52), 0 8px 24px rgba(0, 0, 0, 0.28);
-            /* Frost blue for h1 accent span */
-            --accent: #88C0D0;
-            --accent2: #8FBCBB;
-            --accent-glow: rgba(136, 192, 208, 0.20);
-            --gold: #EBCB8B;
-            --gold2: #D08770;
-            --input-bg: rgba(46, 52, 64, 0.55);
-            --input-border: rgba(255, 255, 255, 0.12);
+
+            --shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.25);
+
+            /* Accent */
+            --accent: #ca9ee6;
+            /* Mauve */
+            --accent2: #eebebe;
+            /* Flamingo */
+            --accent-glow: rgba(202, 158, 230, 0.25);
+
+            --red: #ca9ee6;
+            --red2: #eebebe;
+            --red-glow: rgba(202, 158, 230, 0.35);
+            --red-bg: rgba(202, 158, 230, 0.12);
+            --red-border: rgba(202, 158, 230, 0.30);
+
+            --input-bg: rgba(48, 52, 70, 0.6);
+            --input-border: rgba(255, 255, 255, 0.10);
+
             --unit-bg: rgba(255, 255, 255, 0.06);
-            --num-color: #ECEFF4;
+            --num-color: #c6d0f5;
+
             --chip-bg: rgba(255, 255, 255, 0.08);
-            --chip-border: rgba(255, 255, 255, 0.14);
-            --dot: #BF616A;
-            --popup-bg: rgba(46, 52, 64, 0.97);
-            --popup-hover: rgba(191, 97, 106, 0.14);
+            --chip-border: rgba(255, 255, 255, 0.12);
 
-            /* ── Nord Aurora red ── */
-            --red: #BF616A;
-            --red2: #CF7882;
-            --red-glow: rgba(191, 97, 106, 0.34);
-            --red-bg: rgba(191, 97, 106, 0.14);
-            --red-border: rgba(191, 97, 106, 0.34);
+            --dot: #e78284;
 
-            --glass-specular: inset 0 1.5px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
-            --glass-specular-unit: inset 0 1.5px 0 rgba(255, 255, 255, 0.09), inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+            --popup-bg: rgba(48, 52, 70, 0.95);
+            --popup-hover: rgba(202, 158, 230, 0.12);
         }
 
         *,
@@ -112,9 +115,9 @@
             background: var(--bg);
             /* inside body {} — replace background-image only */
             background-image:
-                radial-gradient(ellipse at 15% 0%, rgba(136, 192, 208, 0.18) 0%, transparent 45%),
-                radial-gradient(ellipse at 85% 5%, rgba(94, 129, 172, 0.14) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 100%, rgba(143, 188, 187, 0.10) 0%, transparent 50%);
+                radial-gradient(ellipse at 15% 0%, rgba(136, 57, 239, 0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 5%, rgba(221, 120, 120, 0.12) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 100%, rgba(202, 158, 230, 0.10) 0%, transparent 50%);
             color: var(--text);
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
             padding: 24px 16px;
@@ -125,9 +128,9 @@
 
         [data-theme="dark"] body {
             background-image:
-                radial-gradient(ellipse at 15% 0%, rgba(136, 192, 208, 0.07) 0%, transparent 45%),
-                radial-gradient(ellipse at 85% 5%, rgba(94, 129, 172, 0.09) 0%, transparent 40%),
-                radial-gradient(ellipse at 50% 100%, rgba(143, 188, 187, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse at 15% 0%, rgba(202, 158, 230, 0.08) 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 5%, rgba(238, 190, 190, 0.10) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 100%, rgba(165, 173, 206, 0.06) 0%, transparent 50%);
         }
 
         body::before {
@@ -662,7 +665,7 @@
         }
 
         .primary {
-            background: linear-gradient(135deg, var(--red), var(--red2));
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
             color: #fff;
             box-shadow: 0 10px 28px var(--red-glow), inset 0 1px 0 rgba(255, 255, 255, 0.30);
         }
