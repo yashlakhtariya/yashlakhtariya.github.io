@@ -1,0 +1,2195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Dham Disha</title>
+    <meta name="description" content="Precision directional compass pointing toward sacred Dhams of Sanatana Culture including Radha Keli Kunj (Vrindavan), Ayodhya, Dwarka, Somnath, Kashi, Puri, and more." />
+    <meta property="og:title" content="Dham Disha" />
+    <meta property="og:description" content="Precision directional compass pointing toward sacred Dhams of Sanatana Culture." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Crisp cool-balanced alabaster & slate palette + luminous saffron with higher RGB blue */
+        --bg-canvas: rgb(247, 250, 254);
+        --bg-surface: rgb(255, 255, 255);
+        --bg-subtle: rgb(240, 245, 252);
+        --border-hairline: rgb(222, 230, 242);
+        --border-strong: rgb(199, 210, 226);
+
+        --text-primary: rgb(15, 23, 42);
+        --text-secondary: rgb(68, 82, 104);
+        --text-muted: rgb(100, 116, 139);
+
+        /* Luminous Saffron-Orange with enriched Blue channel in RGB */
+        --saffron-main: rgb(255, 105, 72);
+        --saffron-bright: rgb(255, 125, 92);
+        --saffron-deep: rgb(232, 79, 46);
+        --saffron-soft: rgb(255, 241, 237);
+        --saffron-ring: rgba(255, 105, 72, 0.24);
+
+        --indigo-accent: rgb(67, 83, 215);
+        --indigo-soft: rgb(238, 241, 255);
+
+        --font-serif: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: var(--bg-canvas);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* Top Header */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(247, 250, 254, 0.92);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-hairline);
+      }
+
+      .topbar-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand-title {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: -0.01em;
+      }
+
+      .topbar-meta {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      @media (max-width: 640px) {
+        .topbar-meta {
+          display: none;
+        }
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: transform 120ms ease, background-color 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease;
+        border: 1px solid transparent;
+        user-select: none;
+      }
+
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn-saffron {
+        background: linear-gradient(135deg, var(--saffron-bright), var(--saffron-deep));
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(255, 105, 72, 0.28);
+      }
+
+      .btn-saffron:hover {
+        background: linear-gradient(135deg, var(--saffron-main), var(--saffron-deep));
+      }
+
+      .btn-outline {
+        background: var(--bg-surface);
+        color: var(--text-primary);
+        border-color: var(--border-strong);
+      }
+
+      .btn-outline:hover {
+        background: var(--bg-subtle);
+      }
+
+      /* Main Layout */
+      .main-container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 20px 20px 44px;
+      }
+
+      /* Dham Selector Strip */
+      .dham-selector-bar {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 20px;
+        padding: 16px 18px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.025);
+      }
+
+      .dham-bar-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .dham-current-info {
+        min-width: 0;
+      }
+
+      .dham-heading {
+        margin: 0;
+        font-family: var(--font-serif);
+        font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.15;
+      }
+
+      .dham-sub-coords {
+        margin: 3px 0 0;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--text-secondary);
+      }
+
+      .dham-select-dropdown {
+        min-height: 42px;
+        padding: 8px 34px 8px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border-strong);
+        background-color: var(--bg-subtle);
+        font-family: var(--font-sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        outline: none;
+        max-width: 100%;
+      }
+
+      .dham-select-dropdown:focus {
+        border-color: var(--saffron-main);
+        box-shadow: 0 0 0 3px var(--saffron-ring);
+      }
+
+      .dham-chips-scroll {
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: thin;
+      }
+
+      .dham-chips-scroll::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      .dham-chips-scroll::-webkit-scrollbar-thumb {
+        background: var(--border-strong);
+        border-radius: 999px;
+      }
+
+      .dham-chip {
+        min-height: 36px;
+        padding: 6px 13px;
+        border-radius: 9px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-subtle);
+        font-family: var(--font-sans);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+      }
+
+      .dham-chip:hover {
+        border-color: var(--border-strong);
+        color: var(--text-primary);
+      }
+
+      .dham-chip.active {
+        background: linear-gradient(135deg, var(--saffron-bright), var(--saffron-deep));
+        border-color: transparent;
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(255, 105, 72, 0.25);
+      }
+
+      /* 2-Column Workspace */
+      .workspace-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+        align-items: start;
+      }
+
+      @media (min-width: 920px) {
+        .workspace-grid {
+          grid-template-columns: 7fr 5fr;
+          gap: 26px;
+        }
+      }
+
+      .surface-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 24px;
+        padding: 22px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.03);
+      }
+
+      @media (min-width: 640px) {
+        .surface-card {
+          padding: 26px;
+        }
+      }
+
+      /* Compass Instrument */
+      .compass-stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .compass-top-bar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+      }
+
+      .compass-dial-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+
+      .alignment-halo {
+        position: absolute;
+        inset: 12px;
+        border-radius: 9999px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 180ms ease;
+        box-shadow: 0 0 0 6px rgba(255, 105, 72, 0.16), 0 0 44px rgba(255, 105, 72, 0.3);
+      }
+
+      .alignment-halo.aligned {
+        opacity: 1;
+      }
+
+      .compass-svg {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+
+      .compass-svg.draggable {
+        cursor: grab;
+      }
+
+      .compass-svg.draggable:active {
+        cursor: grabbing;
+      }
+
+      /* GPU-accelerated zero-lag layers for 60fps sensor rotation */
+      #rose-group,
+      #needle-group {
+        transform-origin: 200px 200px;
+        will-change: transform;
+      }
+
+      .turn-banner {
+        margin-top: 12px;
+        text-align: center;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .turn-banner.aligned {
+        color: var(--saffron-deep);
+      }
+
+      .turn-banner.warn {
+        color: var(--indigo-accent);
+      }
+
+      .sensor-subtext {
+        margin-top: 4px;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* 4-Column Telemetry Strip */
+      .telemetry-strip {
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-hairline);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      @media (min-width: 540px) {
+        .telemetry-strip {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .metric-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .metric-value {
+        margin: 4px 0 0;
+        font-family: var(--font-mono);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .metric-accent {
+        color: var(--saffron-deep);
+        font-size: 0.85rem;
+      }
+
+      /* Right Column Controls */
+      .controls-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .section-kicker {
+        margin: 0;
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+      }
+
+      .section-title {
+        margin: 3px 0 0;
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .control-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      /* Segmented Toggle — Live Sensor FIRST */
+      .segmented-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        padding: 4px;
+        background: var(--bg-subtle);
+        border-radius: 12px;
+        margin-top: 14px;
+      }
+
+      .seg-btn {
+        min-height: 38px;
+        border: none;
+        border-radius: 9px;
+        background: transparent;
+        font-family: var(--font-sans);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+      }
+
+      .seg-btn.active {
+        background: var(--bg-surface);
+        color: var(--text-primary);
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+      }
+
+      /* Range Slider */
+      .slider-wrap {
+        margin-top: 14px;
+      }
+
+      .slider-head {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+      }
+
+      input[type="range"].compass-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      input[type="range"].compass-slider::-webkit-slider-runnable-track {
+        height: 6px;
+        border-radius: 9999px;
+        background: var(--border-strong);
+      }
+
+      input[type="range"].compass-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 9999px;
+        background: var(--saffron-main);
+        border: 3px solid #ffffff;
+        box-shadow: 0 2px 6px rgba(255, 105, 72, 0.4);
+        margin-top: -8px;
+      }
+
+      input[type="range"].compass-slider::-moz-range-track {
+        height: 6px;
+        border-radius: 9999px;
+        background: var(--border-strong);
+      }
+
+      input[type="range"].compass-slider::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+        border-radius: 9999px;
+        background: var(--saffron-main);
+        border: 3px solid #ffffff;
+        box-shadow: 0 2px 6px rgba(255, 105, 72, 0.4);
+      }
+
+      .cardinal-grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 6px;
+      }
+
+      .dir-btn {
+        min-height: 36px;
+        border-radius: 8px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-subtle);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        cursor: pointer;
+      }
+
+      .dir-btn:hover {
+        border-color: var(--border-strong);
+        color: var(--text-primary);
+      }
+
+      .dir-btn.active {
+        background: var(--saffron-main);
+        border-color: var(--saffron-main);
+        color: #ffffff;
+      }
+
+      /* Search & Presets */
+      .search-box {
+        position: relative;
+        margin-top: 12px;
+      }
+
+      .search-input {
+        width: 100%;
+        min-height: 42px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--border-strong);
+        background: var(--bg-canvas);
+        font-family: var(--font-sans);
+        font-size: 0.84rem;
+        color: var(--text-primary);
+        outline: none;
+      }
+
+      .search-input:focus {
+        border-color: var(--saffron-main);
+        box-shadow: 0 0 0 3px var(--saffron-ring);
+      }
+
+      .search-results {
+        margin-top: 6px;
+        border-radius: 10px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-surface);
+        max-height: 190px;
+        overflow-y: auto;
+      }
+
+      .search-item {
+        width: 100%;
+        text-align: left;
+        padding: 9px 12px;
+        border: none;
+        border-bottom: 1px solid var(--border-hairline);
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .search-item:last-child {
+        border-bottom: none;
+      }
+
+      .search-item:hover {
+        background: var(--bg-subtle);
+      }
+
+      .preset-row {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .preset-btn {
+        min-height: 32px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border-hairline);
+        background: var(--bg-subtle);
+        font-size: 0.74rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .preset-btn.active {
+        background: var(--indigo-accent);
+        border-color: var(--indigo-accent);
+        color: #ffffff;
+      }
+
+      .notice-box {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 0.76rem;
+        line-height: 1.45;
+        background: var(--saffron-soft);
+        color: var(--saffron-deep);
+        border: 1px solid rgba(255, 105, 72, 0.25);
+      }
+
+      .notice-box.info {
+        background: var(--indigo-soft);
+        color: var(--indigo-accent);
+        border-color: rgba(67, 83, 215, 0.22);
+      }
+
+      .coord-form {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-hairline);
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 8px;
+        align-items: end;
+      }
+
+      .coord-input {
+        width: 100%;
+        min-height: 38px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border-strong);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+      }
+
+      /* Diagnostic & Permission Popup Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: rgba(15, 23, 42, 0.48);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+      }
+
+      .modal-card {
+        width: 100%;
+        max-width: 440px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 22px;
+        padding: 22px 24px;
+        box-shadow: 0 24px 48px rgba(15, 23, 42, 0.18);
+      }
+
+      .modal-title {
+        margin: 0;
+        font-family: var(--font-serif);
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .modal-body {
+        margin: 10px 0 0;
+        font-size: 0.84rem;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      .modal-status-list {
+        margin: 14px 0;
+        padding: 12px;
+        border-radius: 12px;
+        background: var(--bg-subtle);
+        border: 1px solid var(--border-hairline);
+        font-size: 0.78rem;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .modal-status-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .modal-actions {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="#top" class="brand-title">Dham Disha</a>
+        <span id="topbar-coords" class="topbar-meta tabular-nums">27.5762° N, 77.6748° E</span>
+        <button type="button" id="top-locate-btn" class="btn btn-saffron">
+          Locate &amp; Align
+        </button>
+      </div>
+    </header>
+
+    <main id="top" class="main-container">
+      <!-- Sacred Dham Selector Strip -->
+      <section class="dham-selector-bar" aria-label="Select Sacred Dham">
+        <div class="dham-bar-top">
+          <div class="dham-current-info">
+            <p class="section-kicker">Selected Sacred Dham</p>
+            <h1 id="dham-heading" class="dham-heading">Vrindavan — Shri Hit Radha Keli Kunj</h1>
+            <p id="dham-sub-coords" class="dham-sub-coords tabular-nums">
+              27.5762° N, 77.6748° E · Vrindavan, Uttar Pradesh
+            </p>
+          </div>
+          <div>
+            <select id="dham-select" class="dham-select-dropdown" aria-label="Choose Sacred Dham"></select>
+          </div>
+        </div>
+        <div id="dham-chips" class="dham-chips-scroll" role="tablist" aria-label="Popular Sanatana Dhams"></div>
+      </section>
+
+      <div class="workspace-grid">
+        <!-- Left: Precision Compass Instrument -->
+        <section class="surface-card compass-stage" aria-label="Directional Compass">
+          <div class="compass-top-bar">
+            <span>
+              Facing:
+              <strong id="heading-readout" class="tabular-nums" style="font-family: var(--font-mono); color: var(--text-primary);">0° N</strong>
+            </span>
+            <span id="sensor-mode-label" class="tabular-nums" style="font-family: var(--font-mono);">
+              Sensor: Detecting…
+            </span>
+          </div>
+
+          <div class="compass-dial-wrap">
+            <div id="alignment-halo" class="alignment-halo"></div>
+
+            <svg
+              id="compass-svg"
+              class="compass-svg"
+              viewBox="0 0 400 400"
+              role="img"
+              aria-label="Directional compass pointing toward selected Dham"
+            >
+              <defs>
+                <radialGradient id="dialGrad" cx="50%" cy="45%" r="55%">
+                  <stop offset="0%" stop-color="#FFFFFF" />
+                  <stop offset="80%" stop-color="#F7FAFE" />
+                  <stop offset="100%" stop-color="#EDF2FA" />
+                </radialGradient>
+                <linearGradient id="bezelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#CBD5E1" />
+                  <stop offset="50%" stop-color="#94A3B8" />
+                  <stop offset="100%" stop-color="#64748B" />
+                </linearGradient>
+                <linearGradient id="saffronNeedle" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="rgb(232, 79, 46)" />
+                  <stop offset="55%" stop-color="rgb(255, 105, 72)" />
+                  <stop offset="100%" stop-color="rgb(255, 132, 100)" />
+                </linearGradient>
+              </defs>
+
+              <!-- Outer Bezel Ring -->
+              <circle cx="200" cy="200" r="192" fill="url(#dialGrad)" stroke="url(#bezelGrad)" stroke-width="2.5" />
+              <circle cx="200" cy="200" r="183" fill="none" stroke="#DEE6F2" stroke-width="1" />
+
+              <!-- Top Fixed Lubber Alignment Marker (12 o'clock) -->
+              <polygon id="lubber-triangle" points="200,16 192,4 208,4" fill="rgb(255, 105, 72)" />
+
+              <!-- Rotating Compass Rose -->
+              <g id="rose-group">
+                <circle cx="200" cy="200" r="134" fill="none" stroke="#DEE6F2" stroke-width="1" />
+                <circle cx="200" cy="200" r="98" fill="none" stroke="#DEE6F2" stroke-width="1" stroke-dasharray="2 4" />
+
+                <!-- Subtle 8-point geometric star -->
+                <g stroke="#E6EDF7" stroke-width="1" fill="none">
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(45 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(90 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(135 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(180 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(225 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(270 200 200)" />
+                  <path d="M200,112 C209,142 209,168 200,188 C191,168 191,142 200,112 Z" transform="rotate(315 200 200)" />
+                </g>
+
+                <!-- 72 Ticks populated by JS -->
+                <g id="rose-ticks"></g>
+
+                <!-- Degree Numerals -->
+                <g font-family="JetBrains Mono, monospace" font-size="10" fill="#64748B" text-anchor="middle">
+                  <text x="200" y="56" transform="rotate(30 200 200)">30°</text>
+                  <text x="200" y="56" transform="rotate(60 200 200)">60°</text>
+                  <text x="200" y="56" transform="rotate(120 200 200)">120°</text>
+                  <text x="200" y="56" transform="rotate(150 200 200)">150°</text>
+                  <text x="200" y="56" transform="rotate(210 200 200)">210°</text>
+                  <text x="200" y="56" transform="rotate(240 200 200)">240°</text>
+                  <text x="200" y="56" transform="rotate(300 200 200)">300°</text>
+                  <text x="200" y="56" transform="rotate(330 200 200)">330°</text>
+                </g>
+
+                <!-- Cardinal Letters -->
+                <g font-family="Cormorant Garamond, Georgia, serif" font-weight="700" text-anchor="middle">
+                  <text x="200" y="64" fill="rgb(255, 105, 72)" font-size="22">N</text>
+                  <text x="200" y="63" fill="#0F172A" font-size="18" transform="rotate(90 200 200)">E</text>
+                  <text x="200" y="63" fill="#0F172A" font-size="18" transform="rotate(180 200 200)">S</text>
+                  <text x="200" y="63" fill="#0F172A" font-size="18" transform="rotate(270 200 200)">W</text>
+                </g>
+
+                <!-- Intercardinal Letters -->
+                <g font-family="Plus Jakarta Sans, sans-serif" font-weight="600" font-size="10" text-anchor="middle" fill="#64748B">
+                  <text x="200" y="76" transform="rotate(45 200 200)">NE</text>
+                  <text x="200" y="76" transform="rotate(135 200 200)">SE</text>
+                  <text x="200" y="76" transform="rotate(225 200 200)">SW</text>
+                  <text x="200" y="76" transform="rotate(315 200 200)">NW</text>
+                </g>
+              </g>
+
+              <!-- Target Needle pointing toward selected Dham -->
+              <g id="needle-group" opacity="0.35">
+                <line x1="200" y1="200" x2="200" y2="44" stroke="rgb(255, 105, 72)" stroke-width="1.2" stroke-opacity="0.4" stroke-dasharray="3 3" />
+
+                <!-- Counterweight tail -->
+                <polygon points="200,292 193,200 207,200" fill="#CBD5E1" stroke="#64748B" stroke-width="1" />
+                <circle cx="200" cy="282" r="3.5" fill="#94A3B8" />
+
+                <!-- Forward Luminous Saffron Needle -->
+                <polygon points="200,66 190,200 200,191 210,200" fill="url(#saffronNeedle)" stroke="rgb(214, 65, 34)" stroke-width="1" />
+                <path d="M200,42 L208,62 L200,70 L192,62 Z" fill="rgb(255, 105, 72)" stroke="rgb(214, 65, 34)" stroke-width="1.2" />
+                <circle cx="200" cy="58" r="2.2" fill="#FFFFFF" />
+              </g>
+
+              <!-- Tilt Bubble Level Ring in Center -->
+              <circle cx="200" cy="200" r="24" fill="none" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="2 2" />
+              <circle id="tilt-dot" cx="200" cy="200" r="4" fill="rgb(67, 83, 215)" opacity="0.45" />
+
+              <!-- Center Hub -->
+              <circle cx="200" cy="200" r="12" fill="#FFFFFF" stroke="#475569" stroke-width="2.5" />
+              <circle cx="200" cy="200" r="4.5" fill="rgb(255, 105, 72)" />
+            </svg>
+          </div>
+
+          <div id="turn-instruction" class="turn-banner warn">
+            Detecting your GPS location…
+          </div>
+          <div id="sensor-hint" class="sensor-subtext">
+            Live sensor is preferred by default · tap "Locate &amp; Align" to grant permissions
+          </div>
+
+          <!-- 4-Metric Telemetry Strip -->
+          <div class="telemetry-strip">
+            <div>
+              <p class="metric-label">Bearing</p>
+              <p class="metric-value tabular-nums">
+                <span id="metric-bearing">--°</span>
+                <span id="metric-cardinal" class="metric-accent"></span>
+              </p>
+            </div>
+            <div>
+              <p class="metric-label">Disha</p>
+              <p id="metric-disha" class="metric-value" style="font-family: var(--font-serif); font-size: 1.32rem;">--</p>
+            </div>
+            <div>
+              <p class="metric-label">Distance</p>
+              <p id="metric-distance" class="metric-value tabular-nums">-- km</p>
+            </div>
+            <div>
+              <p class="metric-label">Turn Delta</p>
+              <p id="metric-turn" class="metric-value tabular-nums">--°</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: Hardware Sensor (Default First) & Location Controls -->
+        <aside class="controls-stack" aria-label="Sensor and Location Controls">
+          <!-- Hardware Orientation Sensor Card (Live Sensor First!) -->
+          <div class="surface-card">
+            <div class="control-header">
+              <div>
+                <p class="section-kicker">Compass Orientation</p>
+                <h2 id="orientation-title" class="section-title">Live Sensor &amp; Manual Dial</h2>
+              </div>
+              <button type="button" id="sensor-perm-btn" class="btn btn-saffron">
+                Activate Sensor
+              </button>
+            </div>
+
+            <!-- Live Hardware Sensor is FIRST by default -->
+            <div class="segmented-bar" role="tablist" aria-label="Compass Mode">
+              <button type="button" id="mode-sensor-btn" class="seg-btn active">
+                Live Hardware Sensor
+              </button>
+              <button type="button" id="mode-manual-btn" class="seg-btn">
+                Manual Dial
+              </button>
+            </div>
+
+            <div id="manual-controls-panel" class="slider-wrap hidden">
+              <div class="slider-head">
+                <span>Direction you are currently facing</span>
+                <strong id="slider-deg-label" class="tabular-nums" style="font-family: var(--font-mono); color: var(--text-primary);">0° North</strong>
+              </div>
+              <input
+                type="range"
+                id="heading-slider"
+                class="compass-slider"
+                min="0"
+                max="359"
+                value="0"
+                aria-label="Manual heading in degrees"
+              />
+              <div class="cardinal-grid" id="quick-dir-grid">
+                <button type="button" class="dir-btn active" data-deg="0">N</button>
+                <button type="button" class="dir-btn" data-deg="45">NE</button>
+                <button type="button" class="dir-btn" data-deg="90">E</button>
+                <button type="button" class="dir-btn" data-deg="135">SE</button>
+                <button type="button" class="dir-btn" data-deg="180">S</button>
+                <button type="button" class="dir-btn" data-deg="225">SW</button>
+                <button type="button" class="dir-btn" data-deg="270">W</button>
+                <button type="button" class="dir-btn" data-deg="315">NW</button>
+              </div>
+            </div>
+
+            <div id="sensor-status-box" class="notice-box info">
+              Live Sensor Mode is selected first by default. On iOS Safari, tap "Activate Sensor" to allow motion access.
+            </div>
+          </div>
+
+          <!-- GPS & Location Card (Never fakes location!) -->
+          <div class="surface-card">
+            <div class="control-header">
+              <div style="min-width: 0;">
+                <p class="section-kicker">Your Location</p>
+                <h2 id="location-label" class="section-title" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                  Waiting for GPS…
+                </h2>
+                <p id="location-coords" class="tabular-nums" style="margin: 4px 0 0; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary);">
+                  Allow GPS or pick your city below
+                </p>
+              </div>
+              <button type="button" id="gps-btn" class="btn btn-outline">
+                Use GPS
+              </button>
+            </div>
+
+            <div id="gps-error-box" class="notice-box hidden"></div>
+
+            <div class="search-box">
+              <input
+                type="text"
+                id="city-search"
+                class="search-input"
+                placeholder="Search your city or town…"
+                autocomplete="off"
+              />
+              <div id="search-results" class="search-results hidden"></div>
+            </div>
+
+            <div class="preset-row" id="preset-cities"></div>
+
+            <form id="coord-form" class="coord-form hidden">
+              <div>
+                <label for="input-lat" style="display: block; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 3px;">Latitude</label>
+                <input id="input-lat" type="number" step="any" class="coord-input tabular-nums" placeholder="e.g. 23.0225" required />
+              </div>
+              <div>
+                <label for="input-lon" style="display: block; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 3px;">Longitude</label>
+                <input id="input-lon" type="number" step="any" class="coord-input tabular-nums" placeholder="e.g. 72.5714" required />
+              </div>
+              <button type="submit" class="btn btn-outline" style="min-height: 38px; padding: 6px 12px;">Set</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Permission / Hardware Diagnostic Modal Popup -->
+    <div id="diag-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <h3 id="modal-title" class="modal-title">Device &amp; Permission Notice</h3>
+        <p id="modal-desc" class="modal-body"></p>
+
+        <div class="modal-status-list">
+          <div class="modal-status-item">
+            <span style="color: var(--text-muted); font-weight: 600;">GPS Location</span>
+            <strong id="modal-gps-status" style="text-align: right; color: var(--text-primary);">Checking…</strong>
+          </div>
+          <div class="modal-status-item">
+            <span style="color: var(--text-muted); font-weight: 600;">Compass Sensor</span>
+            <strong id="modal-sensor-status" style="text-align: right; color: var(--text-primary);">Checking…</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="modal-retry-btn" class="btn btn-saffron">
+            Retry Permissions
+          </button>
+          <button type="button" id="modal-manual-btn" class="btn btn-outline">
+            Set Manually
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        // 20 Revered Sanatana Dhams with Verified Coordinates
+        // Note: Vrindavan strictly uses ONLY Shri Hit Radha Keli Kunj coordinates.
+        var DHAMS = [
+          {
+            id: "vrindavan",
+            shortName: "Vrindavan",
+            placeName: "Shri Hit Radha Keli Kunj",
+            region: "Vrindavan, Uttar Pradesh",
+            lat: 27.5761623,
+            lon: 77.6748087
+          },
+          {
+            id: "ayodhya",
+            shortName: "Ayodhya",
+            placeName: "Shri Ram Lalla Mandir",
+            region: "Ayodhya, Uttar Pradesh",
+            lat: 26.7956,
+            lon: 82.1943
+          },
+          {
+            id: "dwarka",
+            shortName: "Dwarka",
+            placeName: "Shree Dwarkadhish Mandir",
+            region: "Dwarka, Gujarat",
+            lat: 22.23788,
+            lon: 68.96756
+          },
+          {
+            id: "somnath",
+            shortName: "Somnath",
+            placeName: "Shree Somnath Jyotirlinga",
+            region: "Prabhas Patan, Gujarat",
+            lat: 20.88803,
+            lon: 70.40139
+          },
+          {
+            id: "dakor",
+            shortName: "Dakor",
+            placeName: "Shree Ranchhodraiji Mandir",
+            region: "Dakor, Gujarat",
+            lat: 22.7527,
+            lon: 73.1497
+          },
+          {
+            id: "kashi",
+            shortName: "Kashi",
+            placeName: "Shri Kashi Vishwanath Mandir",
+            region: "Varanasi, Uttar Pradesh",
+            lat: 25.3109,
+            lon: 83.0107
+          },
+          {
+            id: "puri",
+            shortName: "Jagannath Puri",
+            placeName: "Shree Jagannath Mandir",
+            region: "Puri, Odisha",
+            lat: 19.8048,
+            lon: 85.8181
+          },
+          {
+            id: "mayapur",
+            shortName: "Mayapur",
+            placeName: "Sri Mayapur Chandrodaya Mandir",
+            region: "Mayapur, West Bengal",
+            lat: 23.4228,
+            lon: 88.3879
+          },
+          {
+            id: "haridwar",
+            shortName: "Haridwar",
+            placeName: "Har Ki Pauri",
+            region: "Haridwar, Uttarakhand",
+            lat: 29.95768,
+            lon: 78.17408
+          },
+          {
+            id: "badrinath",
+            shortName: "Badrinath",
+            placeName: "Shree Badrinath Mandir",
+            region: "Chamoli, Uttarakhand",
+            lat: 30.7447,
+            lon: 79.49118
+          },
+          {
+            id: "kedarnath",
+            shortName: "Kedarnath",
+            placeName: "Shree Kedarnath Jyotirlinga",
+            region: "Rudraprayag, Uttarakhand",
+            lat: 30.73519,
+            lon: 79.06692
+          },
+          {
+            id: "rameswaram",
+            shortName: "Rameswaram",
+            placeName: "Sri Ramanathaswamy Mandir",
+            region: "Rameswaram, Tamil Nadu",
+            lat: 9.2881,
+            lon: 79.3173
+          },
+          {
+            id: "tirupati",
+            shortName: "Tirupati",
+            placeName: "Sri Venkateswara Swamy Mandir",
+            region: "Tirumala, Andhra Pradesh",
+            lat: 13.6833,
+            lon: 79.3472
+          },
+          {
+            id: "nathdwara",
+            shortName: "Nathdwara",
+            placeName: "Shree Shrinathji Mandir",
+            region: "Nathdwara, Rajasthan",
+            lat: 24.9292,
+            lon: 73.8186
+          },
+          {
+            id: "ujjain",
+            shortName: "Ujjain",
+            placeName: "Shri Mahakaleshwar Jyotirlinga",
+            region: "Ujjain, Madhya Pradesh",
+            lat: 23.1828,
+            lon: 75.7683
+          },
+          {
+            id: "barsana",
+            shortName: "Barsana",
+            placeName: "Shri Radha Rani Mandir",
+            region: "Barsana, Uttar Pradesh",
+            lat: 27.65028,
+            lon: 77.37361
+          },
+          {
+            id: "pandharpur",
+            shortName: "Pandharpur",
+            placeName: "Shri Vitthal-Rukmini Mandir",
+            region: "Pandharpur, Maharashtra",
+            lat: 17.67778,
+            lon: 75.32778
+          },
+          {
+            id: "prayagraj",
+            shortName: "Prayagraj",
+            placeName: "Triveni Sangam",
+            region: "Prayagraj, Uttar Pradesh",
+            lat: 25.42358,
+            lon: 81.88661
+          },
+          {
+            id: "udupi",
+            shortName: "Udupi",
+            placeName: "Sri Krishna Matha",
+            region: "Udupi, Karnataka",
+            lat: 13.33222,
+            lon: 74.74611
+          },
+          {
+            id: "guruvayur",
+            shortName: "Guruvayur",
+            placeName: "Sree Krishna Mandir",
+            region: "Guruvayur, Kerala",
+            lat: 10.5945,
+            lon: 76.039
+          }
+        ];
+
+        var PRESETS = [
+          { name: "Ahmedabad", lat: 23.0225, lon: 72.5714 },
+          { name: "Surat", lat: 21.1702, lon: 72.8311 },
+          { name: "Vadodara", lat: 22.3072, lon: 73.1812 },
+          { name: "Rajkot", lat: 22.3039, lon: 70.8022 },
+          { name: "Mumbai", lat: 19.0760, lon: 72.8777 },
+          { name: "New Delhi", lat: 28.6139, lon: 77.2090 },
+          { name: "Bengaluru", lat: 12.9716, lon: 77.5946 },
+          { name: "Jaipur", lat: 26.9124, lon: 75.7873 },
+          { name: "London", lat: 51.5074, lon: -0.1278 },
+          { name: "New York", lat: 40.7128, lon: -74.0060 }
+        ];
+
+        var CARDINALS = [
+          { abbr: "N", full: "North" },
+          { abbr: "NNE", full: "North-Northeast" },
+          { abbr: "NE", full: "Northeast" },
+          { abbr: "ENE", full: "East-Northeast" },
+          { abbr: "E", full: "East" },
+          { abbr: "ESE", full: "East-Southeast" },
+          { abbr: "SE", full: "Southeast" },
+          { abbr: "SSE", full: "South-Southeast" },
+          { abbr: "S", full: "South" },
+          { abbr: "SSW", full: "South-Southwest" },
+          { abbr: "SW", full: "Southwest" },
+          { abbr: "WSW", full: "West-Southwest" },
+          { abbr: "W", full: "West" },
+          { abbr: "WNW", full: "West-Northwest" },
+          { abbr: "NW", full: "Northwest" },
+          { abbr: "NNW", full: "North-Northwest" }
+        ];
+
+        var VEDIC_DISHA = [
+          "Uttara",
+          "Ishanya",
+          "Purva",
+          "Agneya",
+          "Dakshina",
+          "Nairitya",
+          "Pashchima",
+          "Vayavya"
+        ];
+
+        // Application State — Never fake user location!
+        var state = {
+          selectedDham: DHAMS[0],
+          hasLocation: false,
+          lat: null,
+          lon: null,
+          label: "Location Not Set",
+          accuracyMeters: null,
+          gpsStatusText: "Requesting GPS…",
+          gpsFailedReason: null,
+
+          // Target & rendered angles for 60fps rAF loop
+          targetHeading: 0,
+          renderedHeading: 0,
+          unwrappedRose: 0,
+          unwrappedNeedle: 0,
+
+          // Live sensor is preferred first by default
+          isLiveSensor: true,
+          sensorReceiving: false,
+          sensorSource: "Detecting…",
+          sensorFailedReason: null,
+          lastVibratedAligned: false
+        };
+
+        var watchId = null;
+        var absSensor = null;
+        var sensorWatchdogTimer = null;
+
+        // DOM Elements
+        var topbarCoordsEl = document.getElementById("topbar-coords");
+        var dhamHeadingEl = document.getElementById("dham-heading");
+        var dhamSubCoordsEl = document.getElementById("dham-sub-coords");
+        var dhamSelectEl = document.getElementById("dham-select");
+        var dhamChipsEl = document.getElementById("dham-chips");
+
+        var roseTicksEl = document.getElementById("rose-ticks");
+        var roseGroupEl = document.getElementById("rose-group");
+        var needleGroupEl = document.getElementById("needle-group");
+        var compassSvgEl = document.getElementById("compass-svg");
+        var alignmentHaloEl = document.getElementById("alignment-halo");
+        var tiltDotEl = document.getElementById("tilt-dot");
+
+        var headingReadoutEl = document.getElementById("heading-readout");
+        var sensorModeLabelEl = document.getElementById("sensor-mode-label");
+        var turnInstructionEl = document.getElementById("turn-instruction");
+        var sensorHintEl = document.getElementById("sensor-hint");
+
+        var metricBearingEl = document.getElementById("metric-bearing");
+        var metricCardinalEl = document.getElementById("metric-cardinal");
+        var metricDishaEl = document.getElementById("metric-disha");
+        var metricDistanceEl = document.getElementById("metric-distance");
+        var metricTurnEl = document.getElementById("metric-turn");
+
+        var sensorPermBtn = document.getElementById("sensor-perm-btn");
+        var modeSensorBtn = document.getElementById("mode-sensor-btn");
+        var modeManualBtn = document.getElementById("mode-manual-btn");
+        var manualControlsPanel = document.getElementById("manual-controls-panel");
+        var headingSlider = document.getElementById("heading-slider");
+        var sliderDegLabel = document.getElementById("slider-deg-label");
+        var quickDirGrid = document.getElementById("quick-dir-grid");
+        var sensorStatusBox = document.getElementById("sensor-status-box");
+
+        var locationLabelEl = document.getElementById("location-label");
+        var locationCoordsEl = document.getElementById("location-coords");
+        var gpsBtn = document.getElementById("gps-btn");
+        var topLocateBtn = document.getElementById("top-locate-btn");
+        var gpsErrorBox = document.getElementById("gps-error-box");
+        var citySearchInput = document.getElementById("city-search");
+        var searchResultsEl = document.getElementById("search-results");
+        var presetCitiesEl = document.getElementById("preset-cities");
+        var coordFormEl = document.getElementById("coord-form");
+        var inputLatEl = document.getElementById("input-lat");
+        var inputLonEl = document.getElementById("input-lon");
+
+        // Modal Elements
+        var diagModalEl = document.getElementById("diag-modal");
+        var modalTitleEl = document.getElementById("modal-title");
+        var modalDescEl = document.getElementById("modal-desc");
+        var modalGpsStatusEl = document.getElementById("modal-gps-status");
+        var modalSensorStatusEl = document.getElementById("modal-sensor-status");
+        var modalRetryBtn = document.getElementById("modal-retry-btn");
+        var modalManualBtn = document.getElementById("modal-manual-btn");
+
+        // Math Helpers
+        function toRad(d) {
+          return (d * Math.PI) / 180;
+        }
+        function toDeg(r) {
+          return (r * 180) / Math.PI;
+        }
+        function normalizeAngle(deg) {
+          return ((deg % 360) + 360) % 360;
+        }
+        function signedAngleDiff(target, current) {
+          return ((target - current + 540) % 360) - 180;
+        }
+        function unwrapAngle(prevUnwrapped, nextMod360) {
+          var currentMod = normalizeAngle(prevUnwrapped);
+          var delta = signedAngleDiff(nextMod360, currentMod);
+          return prevUnwrapped + delta;
+        }
+
+        function calculateBearing(lat1, lon1, lat2, lon2) {
+          var phi1 = toRad(lat1);
+          var phi2 = toRad(lat2);
+          var dLon = toRad(lon2 - lon1);
+          var y = Math.sin(dLon) * Math.cos(phi2);
+          var x =
+            Math.cos(phi1) * Math.sin(phi2) -
+            Math.sin(phi1) * Math.cos(phi2) * Math.cos(dLon);
+          return normalizeAngle(toDeg(Math.atan2(y, x)));
+        }
+
+        function calculateDistanceKm(lat1, lon1, lat2, lon2) {
+          var R = 6371.0088;
+          var phi1 = toRad(lat1);
+          var phi2 = toRad(lat2);
+          var dPhi = toRad(lat2 - lat1);
+          var dLon = toRad(lon2 - lon1);
+          var a =
+            Math.sin(dPhi / 2) * Math.sin(dPhi / 2) +
+            Math.cos(phi1) * Math.cos(phi2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+          return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        function getCardinal(deg) {
+          var idx = Math.round(normalizeAngle(deg) / 22.5) % 16;
+          return CARDINALS[idx];
+        }
+
+        function getVedicDisha(deg) {
+          var idx = Math.round(normalizeAngle(deg) / 45) % 8;
+          return VEDIC_DISHA[idx];
+        }
+
+        function formatCoords(lat, lon) {
+          var ns = lat >= 0 ? "N" : "S";
+          var ew = lon >= 0 ? "E" : "W";
+          return Math.abs(lat).toFixed(4) + "° " + ns + ", " + Math.abs(lon).toFixed(4) + "° " + ew;
+        }
+
+        function formatDist(km) {
+          if (km < 1) {
+            return Math.round(km * 1000) + " m";
+          }
+          return km >= 100 ? Math.round(km).toLocaleString() + " km" : km.toFixed(1) + " km";
+        }
+
+        function getScreenOrientationOffset() {
+          if (window.screen && window.screen.orientation && typeof window.screen.orientation.angle === "number") {
+            return window.screen.orientation.angle;
+          }
+          if (typeof window.orientation === "number") {
+            return window.orientation;
+          }
+          return 0;
+        }
+
+        // Populate 72 SVG degree ticks
+        function buildCompassTicks() {
+          var frag = document.createDocumentFragment();
+          for (var i = 0; i < 72; i++) {
+            var deg = i * 5;
+            var isCardinal = deg % 90 === 0;
+            var isMajor = deg % 30 === 0;
+            var isMid = deg % 15 === 0;
+            var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", "200");
+            line.setAttribute("y1", isCardinal ? "24" : isMajor ? "27" : isMid ? "30" : "33");
+            line.setAttribute("x2", "200");
+            line.setAttribute("y2", "40");
+            line.setAttribute(
+              "stroke",
+              isCardinal ? "rgb(255, 105, 72)" : isMajor ? "#334155" : "#94A3B8"
+            );
+            line.setAttribute(
+              "stroke-width",
+              isCardinal ? "2.4" : isMajor ? "1.5" : "0.9"
+            );
+            line.setAttribute("transform", "rotate(" + deg + " 200 200)");
+            frag.appendChild(line);
+          }
+          roseTicksEl.appendChild(frag);
+        }
+
+        // Build Sacred Dham Chips + Dropdown
+        function initDhamSelector() {
+          var selectFrag = document.createDocumentFragment();
+          var chipsFrag = document.createDocumentFragment();
+
+          DHAMS.forEach(function (dham) {
+            var opt = document.createElement("option");
+            opt.value = dham.id;
+            opt.textContent = dham.shortName + " — " + dham.placeName;
+            selectFrag.appendChild(opt);
+
+            var chip = document.createElement("button");
+            chip.type = "button";
+            chip.className = "dham-chip" + (dham.id === state.selectedDham.id ? " active" : "");
+            chip.setAttribute("data-dham-id", dham.id);
+            chip.textContent = dham.shortName;
+            chip.addEventListener("click", function () {
+              selectDhamById(dham.id);
+            });
+            chipsFrag.appendChild(chip);
+          });
+
+          dhamSelectEl.appendChild(selectFrag);
+          dhamChipsEl.appendChild(chipsFrag);
+
+          dhamSelectEl.addEventListener("change", function () {
+            selectDhamById(dhamSelectEl.value);
+          });
+        }
+
+        function selectDhamById(id) {
+          var found = null;
+          for (var i = 0; i < DHAMS.length; i++) {
+            if (DHAMS[i].id === id) {
+              found = DHAMS[i];
+              break;
+            }
+          }
+          if (!found) return;
+          state.selectedDham = found;
+          dhamSelectEl.value = found.id;
+
+          var chips = dhamChipsEl.querySelectorAll(".dham-chip");
+          for (var j = 0; j < chips.length; j++) {
+            if (chips[j].getAttribute("data-dham-id") === found.id) {
+              chips[j].classList.add("active");
+            } else {
+              chips[j].classList.remove("active");
+            }
+          }
+
+          var coordStr = formatCoords(found.lat, found.lon);
+          topbarCoordsEl.textContent = coordStr;
+          dhamHeadingEl.textContent = found.shortName + " — " + found.placeName;
+          dhamSubCoordsEl.textContent = coordStr + " · " + found.region;
+
+          updateTelemetryText();
+        }
+
+        // Show Popup Modal for Permission or Hardware Issues
+        function showDiagnosticPopup(title, description) {
+          modalTitleEl.textContent = title;
+          modalDescEl.textContent = description;
+
+          modalGpsStatusEl.textContent = state.hasLocation
+            ? "Active (" + state.label + ")"
+            : state.gpsFailedReason || "Not Granted";
+          modalGpsStatusEl.style.color = state.hasLocation
+            ? "var(--indigo-accent)"
+            : "var(--saffron-deep)";
+
+          modalSensorStatusEl.textContent = state.sensorReceiving
+            ? "Active (" + state.sensorSource + ")"
+            : state.sensorFailedReason || "No Sensor / Manual Mode";
+          modalSensorStatusEl.style.color = state.sensorReceiving
+            ? "var(--indigo-accent)"
+            : "var(--saffron-deep)";
+
+          diagModalEl.classList.remove("hidden");
+        }
+
+        function hideDiagnosticPopup() {
+          diagModalEl.classList.add("hidden");
+        }
+
+        // Update textual telemetry & location labels
+        function updateTelemetryText() {
+          var heading = normalizeAngle(state.renderedHeading);
+          var headingCard = getCardinal(heading);
+
+          headingReadoutEl.textContent = Math.round(heading) + "° " + headingCard.abbr;
+          sensorModeLabelEl.textContent = state.isLiveSensor
+            ? state.sensorReceiving
+              ? "Live: " + state.sensorSource
+              : "Sensor: Waiting…"
+            : "Mode: Manual Dial";
+
+          // Update Manual controls if in manual mode
+          if (!state.isLiveSensor) {
+            headingSlider.value = String(Math.round(heading));
+            sliderDegLabel.textContent = Math.round(heading) + "° " + headingCard.full;
+            var dirBtns = quickDirGrid.querySelectorAll(".dir-btn");
+            for (var i = 0; i < dirBtns.length; i++) {
+              var bDeg = Number(dirBtns[i].getAttribute("data-deg"));
+              if (Math.abs(signedAngleDiff(heading, bDeg)) < 4) {
+                dirBtns[i].classList.add("active");
+              } else {
+                dirBtns[i].classList.remove("active");
+              }
+            }
+          }
+
+          // Update Location display
+          if (!state.hasLocation || state.lat === null || state.lon === null) {
+            needleGroupEl.setAttribute("opacity", "0.3");
+            alignmentHaloEl.classList.remove("aligned");
+            turnInstructionEl.className = "turn-banner warn";
+            turnInstructionEl.textContent = "Location required — Allow GPS or select your city";
+            metricBearingEl.textContent = "--°";
+            metricCardinalEl.textContent = "";
+            metricDishaEl.textContent = "--";
+            metricDistanceEl.textContent = "-- km";
+            metricTurnEl.textContent = "--°";
+            return;
+          }
+
+          needleGroupEl.setAttribute("opacity", "1");
+          locationLabelEl.textContent = state.label;
+          locationCoordsEl.textContent =
+            formatCoords(state.lat, state.lon) +
+            (state.accuracyMeters ? " · ±" + Math.round(state.accuracyMeters) + "m" : "");
+
+          var dham = state.selectedDham;
+          var bearing = calculateBearing(state.lat, state.lon, dham.lat, dham.lon);
+          var distKm = calculateDistanceKm(state.lat, state.lon, dham.lat, dham.lon);
+          var isAtShrine = distKm < 0.05;
+          var turnDelta = signedAngleDiff(bearing, heading);
+          var absTurn = Math.abs(turnDelta);
+          var isAligned = isAtShrine || absTurn <= 3;
+
+          if (isAligned) {
+            alignmentHaloEl.classList.add("aligned");
+            turnInstructionEl.className = "turn-banner aligned";
+            if (!state.lastVibratedAligned && state.sensorReceiving && navigator.vibrate) {
+              navigator.vibrate(35);
+            }
+            state.lastVibratedAligned = true;
+          } else {
+            alignmentHaloEl.classList.remove("aligned");
+            turnInstructionEl.className = "turn-banner";
+            state.lastVibratedAligned = false;
+          }
+
+          var bearingCard = getCardinal(bearing);
+
+          if (isAtShrine) {
+            turnInstructionEl.textContent = "You are at " + dham.placeName;
+          } else if (isAligned) {
+            turnInstructionEl.textContent = "Aligned toward " + dham.placeName;
+          } else if (turnDelta > 0) {
+            turnInstructionEl.textContent =
+              "Turn " + Math.round(absTurn) + "° Right (Clockwise) toward " + dham.shortName;
+          } else {
+            turnInstructionEl.textContent =
+              "Turn " + Math.round(absTurn) + "° Left (Counter-Clockwise) toward " + dham.shortName;
+          }
+
+          metricBearingEl.textContent = Math.round(bearing) + "° ";
+          metricCardinalEl.textContent = bearingCard.abbr;
+          metricDishaEl.textContent = getVedicDisha(bearing);
+          metricDistanceEl.textContent = formatDist(distKm);
+          metricTurnEl.textContent = isAtShrine
+            ? "0°"
+            : isAligned
+            ? "0° Aligned"
+            : Math.round(absTurn) + "° " + (turnDelta > 0 ? "R" : "L");
+
+          var presetBtns = presetCitiesEl.querySelectorAll(".preset-btn[data-city]");
+          for (var k = 0; k < presetBtns.length; k++) {
+            if (presetBtns[k].getAttribute("data-city") === state.label) {
+              presetBtns[k].classList.add("active");
+            } else {
+              presetBtns[k].classList.remove("active");
+            }
+          }
+        }
+
+        // Fast 60fps requestAnimationFrame Loop for Zero-Lag Compass Rotation
+        function animationLoop() {
+          var diff = signedAngleDiff(state.targetHeading, state.renderedHeading);
+          if (Math.abs(diff) > 0.04) {
+            // Fast 0.48 interpolation step per frame at 60fps -> crisp, immediate response without jitter
+            state.renderedHeading = normalizeAngle(state.renderedHeading + diff * 0.48);
+          } else {
+            state.renderedHeading = state.targetHeading;
+          }
+
+          var targetRose = normalizeAngle(-state.renderedHeading);
+          state.unwrappedRose = unwrapAngle(state.unwrappedRose, targetRose);
+          roseGroupEl.style.transform =
+            "translateZ(0) rotate(" + state.unwrappedRose.toFixed(2) + "deg)";
+
+          if (state.hasLocation && state.lat !== null && state.lon !== null) {
+            var bearing = calculateBearing(
+              state.lat,
+              state.lon,
+              state.selectedDham.lat,
+              state.selectedDham.lon
+            );
+            var targetNeedle = normalizeAngle(bearing - state.renderedHeading);
+            state.unwrappedNeedle = unwrapAngle(state.unwrappedNeedle, targetNeedle);
+          } else {
+            state.unwrappedNeedle = unwrapAngle(state.unwrappedNeedle, 0);
+          }
+
+          needleGroupEl.style.transform =
+            "translateZ(0) rotate(" + state.unwrappedNeedle.toFixed(2) + "deg)";
+
+          updateTelemetryText();
+          requestAnimationFrame(animationLoop);
+        }
+
+        // Hardware Orientation Event Handler
+        function handleDeviceOrientation(e) {
+          if (!state.isLiveSensor) return;
+
+          // Update center tilt bubble level
+          if (typeof e.beta === "number" && typeof e.gamma === "number") {
+            var dx = Math.max(-16, Math.min(16, e.gamma * 0.4));
+            var dy = Math.max(-16, Math.min(16, e.beta * 0.4));
+            tiltDotEl.setAttribute("cx", String(200 + dx));
+            tiltDotEl.setAttribute("cy", String(200 + dy));
+          }
+
+          var rawHeading = null;
+          if (typeof e.webkitCompassHeading === "number" && !isNaN(e.webkitCompassHeading)) {
+            rawHeading = e.webkitCompassHeading;
+            state.sensorSource =
+              e.webkitCompassAccuracy && e.webkitCompassAccuracy > 0
+                ? "iOS (±" + Math.round(e.webkitCompassAccuracy) + "°)"
+                : "iOS Compass";
+          } else if (typeof e.alpha === "number" && e.alpha !== null) {
+            var alphaRad = toRad(e.alpha);
+            var betaRad = toRad(typeof e.beta === "number" ? e.beta : 0);
+            var gammaRad = toRad(typeof e.gamma === "number" ? e.gamma : 0);
+
+            var cA = Math.cos(alphaRad);
+            var sA = Math.sin(alphaRad);
+            var cB = Math.cos(betaRad);
+            var sB = Math.sin(betaRad);
+            var cG = Math.cos(gammaRad);
+            var sG = Math.sin(gammaRad);
+
+            var vx = -cA * sG - sA * sB * cG;
+            var vy = -sA * sG + cA * sB * cG;
+
+            var compassHeading = Math.atan2(vx, vy);
+            if (compassHeading < 0) {
+              compassHeading += 2 * Math.PI;
+            }
+            rawHeading = normalizeAngle(toDeg(compassHeading) + getScreenOrientationOffset());
+            state.sensorSource = e.absolute ? "Absolute Fused" : "Gyro/Magnetometer";
+          }
+
+          if (rawHeading !== null) {
+            state.sensorReceiving = true;
+            state.sensorFailedReason = null;
+            if (sensorWatchdogTimer) {
+              clearTimeout(sensorWatchdogTimer);
+              sensorWatchdogTimer = null;
+            }
+            state.targetHeading = rawHeading;
+          }
+        }
+
+        function startHardwareSensors(triggeredByUserTap) {
+          state.isLiveSensor = true;
+          state.sensorReceiving = false;
+          modeSensorBtn.classList.add("active");
+          modeManualBtn.classList.remove("active");
+          manualControlsPanel.classList.add("hidden");
+          compassSvgEl.classList.remove("draggable");
+          sensorHintEl.textContent = "Hold phone flat; keep center dot inside the inner ring";
+
+          // 1. Try W3C AbsoluteOrientationSensor at 60Hz
+          if ("AbsoluteOrientationSensor" in window) {
+            try {
+              if (absSensor) {
+                try { absSensor.stop(); } catch (e) {}
+              }
+              absSensor = new window.AbsoluteOrientationSensor({
+                frequency: 60,
+                referenceFrame: "screen"
+              });
+              absSensor.addEventListener("reading", function () {
+                if (!state.isLiveSensor || !absSensor.quaternion) return;
+                var q = absSensor.quaternion;
+                var qx = q[0], qy = q[1], qz = q[2], qw = q[3];
+                var yawRad = Math.atan2(
+                  2 * (qx * qy + qw * qz),
+                  qw * qw + qx * qx - qy * qy - qz * qz
+                );
+                state.sensorReceiving = true;
+                state.sensorFailedReason = null;
+                if (sensorWatchdogTimer) {
+                  clearTimeout(sensorWatchdogTimer);
+                  sensorWatchdogTimer = null;
+                }
+                state.sensorSource = "60Hz 9-Axis Fusion";
+                state.targetHeading = normalizeAngle(-toDeg(yawRad));
+              });
+              absSensor.start();
+            } catch (err) {}
+          }
+
+          // 2. Attach DeviceOrientation listeners
+          window.addEventListener("deviceorientationabsolute", handleDeviceOrientation, true);
+          window.addEventListener("deviceorientation", handleDeviceOrientation, true);
+
+          // Watchdog: detect MacBook/Desktop or missing magnetometer within 1.3s
+          if (sensorWatchdogTimer) clearTimeout(sensorWatchdogTimer);
+          sensorWatchdogTimer = setTimeout(function () {
+            if (!state.sensorReceiving) {
+              var needsIosTap =
+                typeof window.DeviceOrientationEvent !== "undefined" &&
+                typeof window.DeviceOrientationEvent.requestPermission === "function" &&
+                !triggeredByUserTap;
+
+              if (needsIosTap) {
+                state.sensorFailedReason = "Tap 'Activate Sensor' to grant iOS permission";
+                sensorStatusBox.className = "notice-box";
+                sensorStatusBox.textContent =
+                  "iOS requires a tap to enable the compass sensor. Tap 'Activate Sensor' or 'Locate & Align'.";
+                sensorStatusBox.classList.remove("hidden");
+              } else {
+                // Laptop / MacBook / desktop with no motion sensor hardware -> switch to Manual & notify popup
+                state.sensorFailedReason = "No Compass Hardware (Switched to Manual)";
+                switchToManualMode(
+                  "No hardware magnetometer/motion sensor was detected on this device (e.g. MacBook or desktop). Switched to Manual Dial Mode — drag the compass or use the slider to set your facing direction."
+                );
+                showDiagnosticPopup(
+                  "No Motion Sensor Detected",
+                  "Your device (such as a MacBook or desktop computer) does not have a built-in compass sensor. We have enabled the Manual Dial so you can easily drag the compass or use the slider to align."
+                );
+              }
+            } else {
+              sensorStatusBox.className = "notice-box info";
+              sensorStatusBox.textContent =
+                "Live hardware sensor active (" + state.sensorSource + "). Turn smoothly to align.";
+              sensorStatusBox.classList.remove("hidden");
+            }
+          }, 1300);
+        }
+
+        function switchToManualMode(reasonMessage) {
+          state.isLiveSensor = false;
+          state.sensorReceiving = false;
+          if (sensorWatchdogTimer) {
+            clearTimeout(sensorWatchdogTimer);
+            sensorWatchdogTimer = null;
+          }
+          if (absSensor) {
+            try { absSensor.stop(); } catch (e) {}
+            absSensor = null;
+          }
+          window.removeEventListener("deviceorientationabsolute", handleDeviceOrientation, true);
+          window.removeEventListener("deviceorientation", handleDeviceOrientation, true);
+          tiltDotEl.setAttribute("cx", "200");
+          tiltDotEl.setAttribute("cy", "200");
+
+          modeManualBtn.classList.add("active");
+          modeSensorBtn.classList.remove("active");
+          manualControlsPanel.classList.remove("hidden");
+          compassSvgEl.classList.add("draggable");
+          sensorHintEl.textContent = "Drag the compass dial or use the slider to set your facing direction";
+
+          if (reasonMessage) {
+            sensorStatusBox.className = "notice-box";
+            sensorStatusBox.textContent = reasonMessage;
+            sensorStatusBox.classList.remove("hidden");
+          } else {
+            sensorStatusBox.classList.add("hidden");
+          }
+        }
+
+        async function requestSensorPermissions() {
+          try {
+            if (
+              typeof window.DeviceOrientationEvent !== "undefined" &&
+              typeof window.DeviceOrientationEvent.requestPermission === "function"
+            ) {
+              var permState = await window.DeviceOrientationEvent.requestPermission();
+              if (permState !== "granted") {
+                state.sensorFailedReason = "Permission Denied in Browser";
+                switchToManualMode(
+                  "Motion & Orientation permission was denied. Switched to Manual Dial Mode."
+                );
+                showDiagnosticPopup(
+                  "Compass Permission Blocked",
+                  "Motion & Orientation access was declined by your browser. Please allow Motion access in your browser settings or use the Manual Dial."
+                );
+                return;
+              }
+            }
+            if (
+              typeof window.DeviceMotionEvent !== "undefined" &&
+              typeof window.DeviceMotionEvent.requestPermission === "function"
+            ) {
+              try {
+                await window.DeviceMotionEvent.requestPermission();
+              } catch (e) {}
+            }
+            startHardwareSensors(true);
+          } catch (err) {
+            state.sensorFailedReason = "Permission Request Blocked";
+            switchToManualMode(
+              "Could not activate hardware sensor. Use the Manual Dial below to set your facing direction."
+            );
+            showDiagnosticPopup(
+              "Sensor Permission Required",
+              "Your browser blocked live motion sensor access. You can retry or use the Manual Dial to align."
+            );
+          }
+        }
+
+        // High-Accuracy Geolocation — Never shows a wrong fallback city silently!
+        function requestHighAccuracyGps() {
+          if (!("geolocation" in navigator)) {
+            state.gpsFailedReason = "Geolocation Not Supported";
+            gpsErrorBox.textContent =
+              "Geolocation is not supported by this browser. Please select your city below.";
+            gpsErrorBox.classList.remove("hidden");
+            showDiagnosticPopup(
+              "Geolocation Not Available",
+              "Your browser does not support GPS location. Please choose or search your city manually so the compass points accurately."
+            );
+            return;
+          }
+
+          if (watchId !== null) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+          }
+
+          gpsBtn.textContent = "Locating…";
+          gpsErrorBox.classList.add("hidden");
+
+          var onPos = function (pos) {
+            state.hasLocation = true;
+            state.lat = pos.coords.latitude;
+            state.lon = pos.coords.longitude;
+            state.accuracyMeters = pos.coords.accuracy;
+            state.label = "Current GPS Location";
+            state.gpsFailedReason = null;
+            gpsBtn.textContent = "GPS Active";
+            gpsErrorBox.classList.add("hidden");
+            inputLatEl.value = state.lat.toFixed(4);
+            inputLonEl.value = state.lon.toFixed(4);
+          };
+
+          var onErr = function (err) {
+            gpsBtn.textContent = "Retry GPS";
+            var msg = "";
+            if (err.code === 1) {
+              state.gpsFailedReason = "Location Permission Denied";
+              msg =
+                "Location permission is blocked for this browser. On iOS Safari, open Settings → Privacy & Security → Location Services → Safari Websites → Set to 'While Using the App', or select your city manually below.";
+            } else if (err.code === 2) {
+              state.gpsFailedReason = "Position Unavailable";
+              msg =
+                "Your device could not determine its GPS position. Please check that Location Services are turned on, or select your city manually below.";
+            } else {
+              state.gpsFailedReason = "GPS Timeout";
+              msg =
+                "GPS lookup timed out. Please retry GPS or select your city manually below.";
+            }
+
+            gpsErrorBox.textContent = msg;
+            gpsErrorBox.classList.remove("hidden");
+
+            if (!state.hasLocation) {
+              showDiagnosticPopup("Location Permission Required", msg);
+            }
+          };
+
+          navigator.geolocation.getCurrentPosition(onPos, onErr, {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+          });
+
+          watchId = navigator.geolocation.watchPosition(onPos, undefined, {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: 15000
+          });
+        }
+
+        // Interactive Dial Dragging in Manual Mode
+        var isDraggingDial = false;
+        var dragStartAngle = 0;
+        var dragStartHeading = 0;
+
+        function getAngleFromCenter(clientX, clientY) {
+          var rect = compassSvgEl.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          return toDeg(Math.atan2(clientY - cy, clientX - cx));
+        }
+
+        compassSvgEl.addEventListener("pointerdown", function (e) {
+          if (state.isLiveSensor) return;
+          isDraggingDial = true;
+          dragStartAngle = getAngleFromCenter(e.clientX, e.clientY);
+          dragStartHeading = state.targetHeading;
+          if (compassSvgEl.setPointerCapture) {
+            compassSvgEl.setPointerCapture(e.pointerId);
+          }
+        });
+
+        compassSvgEl.addEventListener("pointermove", function (e) {
+          if (!isDraggingDial || state.isLiveSensor) return;
+          var currentAngle = getAngleFromCenter(e.clientX, e.clientY);
+          var delta = currentAngle - dragStartAngle;
+          state.targetHeading = normalizeAngle(dragStartHeading - delta);
+          state.renderedHeading = state.targetHeading;
+        });
+
+        function endDialDrag(e) {
+          if (!isDraggingDial) return;
+          isDraggingDial = false;
+          if (e && compassSvgEl.hasPointerCapture && compassSvgEl.hasPointerCapture(e.pointerId)) {
+            compassSvgEl.releasePointerCapture(e.pointerId);
+          }
+        }
+
+        compassSvgEl.addEventListener("pointerup", endDialDrag);
+        compassSvgEl.addEventListener("pointercancel", endDialDrag);
+
+        // Preset Cities & Coordinates Form
+        function initPresets() {
+          var frag = document.createDocumentFragment();
+          for (var i = 0; i < PRESETS.length; i++) {
+            (function (city) {
+              var btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "preset-btn";
+              btn.setAttribute("data-city", city.name);
+              btn.textContent = city.name;
+              btn.addEventListener("click", function () {
+                if (watchId !== null) {
+                  navigator.geolocation.clearWatch(watchId);
+                  watchId = null;
+                }
+                gpsBtn.textContent = "Use GPS";
+                gpsErrorBox.classList.add("hidden");
+                state.hasLocation = true;
+                state.lat = city.lat;
+                state.lon = city.lon;
+                state.label = city.name;
+                state.accuracyMeters = null;
+                inputLatEl.value = city.lat.toFixed(4);
+                inputLonEl.value = city.lon.toFixed(4);
+              });
+              frag.appendChild(btn);
+            })(PRESETS[i]);
+          }
+
+          var customBtn = document.createElement("button");
+          customBtn.type = "button";
+          customBtn.className = "preset-btn";
+          customBtn.textContent = "Coordinates";
+          customBtn.addEventListener("click", function () {
+            coordFormEl.classList.toggle("hidden");
+          });
+          frag.appendChild(customBtn);
+
+          presetCitiesEl.appendChild(frag);
+        }
+
+        // City Search
+        var searchTimer = null;
+        citySearchInput.addEventListener("input", function () {
+          var q = citySearchInput.value.trim();
+          if (searchTimer) clearTimeout(searchTimer);
+          if (q.length < 2) {
+            searchResultsEl.classList.add("hidden");
+            searchResultsEl.innerHTML = "";
+            return;
+          }
+
+          searchTimer = setTimeout(async function () {
+            try {
+              var res = await fetch(
+                "https://nominatim.openstreetmap.org/search?format=json&limit=5&q=" +
+                  encodeURIComponent(q),
+                { headers: { Accept: "application/json" } }
+              );
+              var data = await res.json();
+              searchResultsEl.innerHTML = "";
+              if (!Array.isArray(data) || data.length === 0) {
+                searchResultsEl.classList.add("hidden");
+                return;
+              }
+              data.forEach(function (item) {
+                var lat = parseFloat(item.lat);
+                var lon = parseFloat(item.lon);
+                if (!isFinite(lat) || !isFinite(lon)) return;
+                var parts = String(item.display_name).split(",");
+                var shortName = parts.slice(0, 2).join(", ").trim();
+
+                var btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "search-item";
+                btn.innerHTML =
+                  '<strong style="font-size:0.82rem;color:var(--text-primary);">' +
+                  shortName +
+                  '</strong><span style="font-size:0.72rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;">' +
+                  item.display_name +
+                  "</span>";
+                btn.addEventListener("click", function () {
+                  if (watchId !== null) {
+                    navigator.geolocation.clearWatch(watchId);
+                    watchId = null;
+                  }
+                  gpsBtn.textContent = "Use GPS";
+                  gpsErrorBox.classList.add("hidden");
+                  state.hasLocation = true;
+                  state.lat = lat;
+                  state.lon = lon;
+                  state.label = shortName;
+                  state.accuracyMeters = null;
+                  inputLatEl.value = lat.toFixed(4);
+                  inputLonEl.value = lon.toFixed(4);
+                  citySearchInput.value = "";
+                  searchResultsEl.classList.add("hidden");
+                });
+                searchResultsEl.appendChild(btn);
+              });
+              searchResultsEl.classList.remove("hidden");
+            } catch (e) {
+              searchResultsEl.classList.add("hidden");
+            }
+          }, 260);
+        });
+
+        // Event Bindings
+        headingSlider.addEventListener("input", function () {
+          state.targetHeading = Number(headingSlider.value);
+          state.renderedHeading = state.targetHeading;
+        });
+
+        quickDirGrid.addEventListener("click", function (e) {
+          var target = e.target.closest(".dir-btn");
+          if (!target) return;
+          state.targetHeading = Number(target.getAttribute("data-deg"));
+        });
+
+        sensorPermBtn.addEventListener("click", function () {
+          requestSensorPermissions();
+        });
+
+        modeSensorBtn.addEventListener("click", function () {
+          requestSensorPermissions();
+        });
+
+        modeManualBtn.addEventListener("click", function () {
+          switchToManualMode(
+            "Manual Dial Mode active. Drag the compass rose or use the slider below."
+          );
+        });
+
+        gpsBtn.addEventListener("click", function () {
+          requestHighAccuracyGps();
+        });
+
+        topLocateBtn.addEventListener("click", function () {
+          requestHighAccuracyGps();
+          requestSensorPermissions();
+        });
+
+        modalRetryBtn.addEventListener("click", function () {
+          hideDiagnosticPopup();
+          requestHighAccuracyGps();
+          requestSensorPermissions();
+        });
+
+        modalManualBtn.addEventListener("click", function () {
+          hideDiagnosticPopup();
+          if (!state.sensorReceiving) {
+            switchToManualMode(
+              "Manual Dial Mode active. Select your city below and drag the compass dial to align."
+            );
+          }
+          if (!state.hasLocation) {
+            citySearchInput.focus();
+          }
+        });
+
+        diagModalEl.addEventListener("click", function (e) {
+          if (e.target === diagModalEl) {
+            hideDiagnosticPopup();
+          }
+        });
+
+        coordFormEl.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var lat = parseFloat(inputLatEl.value);
+          var lon = parseFloat(inputLonEl.value);
+          if (!isFinite(lat) || lat < -90 || lat > 90 || !isFinite(lon) || lon < -180 || lon > 180) {
+            return;
+          }
+          if (watchId !== null) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+          }
+          gpsErrorBox.classList.add("hidden");
+          state.hasLocation = true;
+          state.lat = lat;
+          state.lon = lon;
+          state.label = "Custom Coordinates";
+          state.accuracyMeters = null;
+          coordFormEl.classList.add("hidden");
+        });
+
+        // Initialize
+        buildCompassTicks();
+        initDhamSelector();
+        initPresets();
+        requestAnimationFrame(animationLoop);
+
+        // Default preference: always try Live Hardware Sensor + High-Accuracy GPS first
+        requestHighAccuracyGps();
+        startHardwareSensors(false);
+      })();
+    </script>
+  </body>
+</html>
